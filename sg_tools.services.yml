@@ -8,9 +8,6 @@ services:
   sg_tools.file.manager:
     class: Drupal\sg_tools\Manager\SgToolsFileManager
     autowire: true
-#        arguments: ["@service_id", "plain_value", "%parameter%"]
-#        calls:
-#            - [setService, ["@service_id"]]
-#        tags:
-#            - { name: twig.extension }
-#            - { name: kernel.event_listener, event: kernel.exception, method: onKernelException }
+  sg_tools.popin.controller:
+    class: Drupal\sg_tools\Controller\PopinController
+    autowire: true

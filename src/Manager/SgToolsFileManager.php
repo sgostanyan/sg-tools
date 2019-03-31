@@ -28,6 +28,47 @@ class SgToolsFileManager {
   }
 
   /**
+   * @param $source
+   * @param $filename
+   * @param null $destination
+   *
+   * @return int|string|null
+   * @throws \Exception
+   */
+  public function generateFileEntity(
+    $source,
+    $filename,
+    $destination = NULL
+  ) {
+
+    if (substr($source, -1) != "/") {
+      $source = $source . "/";
+    }
+    if ($destination) {
+      if (substr($destination, -1) != "/") {
+        $destination = $destination . "/";
+      }
+    }
+    else {
+      $dateTime = new \DateTime();
+      $destination = 'public://' . $dateTime->format('Y-m') . '/';
+    }
+    $filepath = $source . $filename;
+
+    $data = file_get_contents($filepath);
+    if ($data) {
+      if (file_prepare_directory($destination, FILE_CREATE_DIRECTORY)) {
+        $file = file_save_data($data, $destination . $filename,
+          FILE_EXISTS_REPLACE);
+        if ($file) {
+          return $file->id();
+        }
+      }
+    }
+    return NULL;
+  }
+
+  /**
    * @param $fid
    *
    * @return array

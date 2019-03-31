@@ -50,7 +50,7 @@ class SgToolsEntityRenderManager {
    * @return mixed
    *   Renderable array.
    */
-  public function renderEntity(Entity $entity, $viewMode = NULL) {
+  public function renderEntity($entity, $viewMode = NULL) {
     return $this->entityTypeManager->getViewBuilder($entity->getEntityType()->id())
       ->view($entity, $viewMode);
   }

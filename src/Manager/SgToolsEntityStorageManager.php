@@ -42,7 +42,7 @@ class SgToolsEntityStorageManager {
    * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
    * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    */
-  public function getEntityById(array $ids, string $entityType) {
+  public function getEntitiesById(array $ids, string $entityType) {
     $entities = $this->entityTypeManager->getStorage($entityType)
       ->loadMultiple($ids);
     $entitiesArray = [];

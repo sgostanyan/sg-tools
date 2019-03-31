@@ -1,0 +1,7 @@
+
+sg_tools_media.popin_controller_get_popin:
+  path: '/popin/render/{entityType}/{id}/{viewMode}'
+  defaults:
+    _controller:  sg_tools.popin.controller:getPopin
+  requirements:
+    _permission: 'access content'
