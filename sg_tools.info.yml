@@ -1,0 +1,5 @@
+name: 'SG Tools'
+type: module
+description: 'SG Tools Module'
+core: 8.x
+package: 'SG'

@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains sg_tools.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function sg_tools_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the sg_tools module.
+    case 'help.page.sg_tools':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('SG Tools Module') . '</p>';
+      return $output;
+
+    default:
+  }
+}
