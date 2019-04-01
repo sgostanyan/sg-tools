@@ -32,6 +32,7 @@ class PopinFieldFormatter extends FormatterBase implements ContainerFactoryPlugi
    */
   protected $entityTypeManager;
 
+
   /**
    * @var \Drupal\Core\Entity\EntityRepository
    */
@@ -186,26 +187,6 @@ class PopinFieldFormatter extends FormatterBase implements ContainerFactoryPlugi
   }
 
   /**
-   * GetViewModes.
-   *
-   * @param string $entityType
-   *   EntityType.
-   *
-   * @return array
-   *   View mode array.
-   */
-  protected function getViewModes($entityType) {
-    $viewModes = $this->entityDisplayRepository->getViewModes($entityType);
-    $viewModesSanit = [];
-    if ($viewModes) {
-      foreach ($viewModes as $label => $viewMode) {
-        $viewModesSanit[$label] = $viewMode['id'];
-      }
-    }
-    return $viewModesSanit;
-  }
-
-  /**
    * {@inheritdoc}
    */
   public function settingsSummary() {
@@ -249,6 +230,26 @@ class PopinFieldFormatter extends FormatterBase implements ContainerFactoryPlugi
     }
 
     return $elements;
+  }
+
+  /**
+   * GetViewModes.
+   *
+   * @param string $entityType
+   *   EntityType.
+   *
+   * @return array
+   *   View mode array.
+   */
+  protected function getViewModes($entityType) {
+    $viewModes = $this->entityDisplayRepository->getViewModes($entityType);
+    $viewModesSanit = [];
+    if ($viewModes) {
+      foreach ($viewModes as $label => $viewMode) {
+        $viewModesSanit[$label] = $viewMode['id'];
+      }
+    }
+    return $viewModesSanit;
   }
 
   /**

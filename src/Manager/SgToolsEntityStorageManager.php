@@ -84,6 +84,6 @@ class SgToolsEntityStorageManager {
       $translatedEntity->save();
       return $translatedEntity;
     }
+    return NULL;
   }
-
 }
